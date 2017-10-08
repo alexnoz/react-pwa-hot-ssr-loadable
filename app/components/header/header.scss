@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  background-color: #000;
+  color: white;
+  align-items: center;
+  box-shadow: 0 .1em .2em #000;
+}
+
+.nav-block {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-item {
+  margin: 0 3vmin;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+
+  &-active {
+    color: cornsilk;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
