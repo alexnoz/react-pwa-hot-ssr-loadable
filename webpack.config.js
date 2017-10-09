@@ -41,8 +41,6 @@ const commonConfig = merge([
       modules: [paths.app, paths.nodeModules, 'node_modules'],
       extensions: ['.js', '.json', '.jsx'],
       alias: {
-        images: paths.images,
-        fonts: paths.fonts,
         components: paths.components
       }
     },
