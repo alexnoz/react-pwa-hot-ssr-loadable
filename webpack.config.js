@@ -65,7 +65,7 @@ const commonConfig = merge([
   parts.loadJS({
     include: paths.app,
     options: {
-      // cacheDirectory: true,
+      cacheDirectory: true,
 
       // We have to specify 'react-css-modules' plugin here and not in .babelrc,
       // because we need to use the 'context' variable
