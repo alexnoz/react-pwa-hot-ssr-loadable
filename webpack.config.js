@@ -21,7 +21,6 @@ const lintJSOptions = {
 
   // Toggle autofix
   fix: true,
-  // cache: true,
 
   formatter: require('eslint-friendly-formatter')
 }
@@ -37,8 +36,7 @@ const commonConfig = merge([
       unsafeCache: true,
       symlinks: false,
 
-      // Add path to the 'app' folder?
-      modules: [paths.app, paths.nodeModules, 'node_modules'],
+      modules: [paths.nodeModules, 'node_modules'],
       extensions: ['.js', '.json', '.jsx'],
       alias: {
         components: paths.components
@@ -46,7 +44,6 @@ const commonConfig = merge([
     },
     output: {
       path: paths.build
-      // publicPath: '/'
     },
     plugins: [
       new HtmlPlugin({
@@ -83,15 +80,6 @@ const commonConfig = merge([
           }
         ]
       ]
-
-      // presets: [
-      //   'env',
-      //   {
-      //     targets: {
-      //       browsers: []
-      //     }
-      //   }
-      // ]
     }
   }),
   parts.loadFonts({

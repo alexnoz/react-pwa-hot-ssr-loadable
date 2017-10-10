@@ -15,7 +15,6 @@ exports.devServer = ({ host, port } = {}) => ({
     },
     compress: true,
     contentBase: paths.public,
-    // publicPath: '/',
     watchContentBase: true,
     // Enable history API fallback so HTML5 History API based
     // routing works. Good for complex setups.
