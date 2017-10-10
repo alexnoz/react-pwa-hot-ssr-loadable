@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import Bundle from 'components/bundle'
 import Header from 'components/header'
 
-import './app.scss'
+import './assets/styles/index.scss'
 
 // Dynamically load components via `Bundle` helper component
 const loadComponent = (name, props) => (
