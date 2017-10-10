@@ -72,6 +72,7 @@ const commonConfig = merge([
           'react-css-modules',
           {
             context,
+            generateScopedName: parts.localIdentName,
             exclude: 'node_modules',
             webpackHotModuleReloading: true,
             filetypes: {

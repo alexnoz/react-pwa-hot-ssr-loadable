@@ -4,6 +4,10 @@ const BabiliPlugin = require('babili-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const paths = require('./paths')
 
+const localIdentName = '[name]_[local]_[hash:base64:5]'
+
+exports.localIdentName = localIdentName
+
 exports.devServer = ({ host, port } = {}) => ({
   devServer: {
     watchOptions: {
@@ -63,7 +67,7 @@ const sharedCSSLoaders = [
   {
     loader: 'css-loader',
     options: {
-      localIdentName: '[path]___[name]__[local]___[hash:base64:5]',
+      localIdentName,
       // importLoaders: 1,
       modules: true
     }
