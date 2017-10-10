@@ -156,13 +156,6 @@ const productionConfig = merge([
     include: paths.app,
     use: [parts.autoprefix(), cssPreprocessorLoader]
   }),
-  // parts.purifyCSS({
-  //   paths: glob.sync(`${paths.app}/**/*.js`, { nodir: true }),
-  //   styleExtensions: ['.css', '.scss'],
-  //   purifyOptions: {
-  //     whitelist: ['*purify*']
-  //   }
-  // }),
   parts.minifyCSS({
     options: {
       discardComments: {

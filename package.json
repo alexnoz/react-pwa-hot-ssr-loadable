@@ -63,8 +63,6 @@
     "optimize-css-assets-webpack-plugin": "^2.0.0",
     "optimize-css-classnames-plugin": "^0.0.5",
     "postcss-loader": "^2.0.6",
-    "purify-css": "^1.2.5",
-    "purifycss-webpack": "^0.7.0",
     "react-hot-loader": "next",
     "style-loader": "^0.18.2",
     "sw-precache-webpack-plugin": "^0.11.4",

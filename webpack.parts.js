@@ -1,6 +1,5 @@
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const PurifyCSSPlugin = require('purifycss-webpack')
 const BabiliPlugin = require('babili-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const paths = require('./paths')
@@ -76,12 +75,6 @@ exports.autoprefix = () => ({
   options: {
     plugins: () => [require('autoprefixer')]
   }
-})
-
-exports.purifyCSS = (options) => ({
-  plugins: [
-    new PurifyCSSPlugin(options)
-  ]
 })
 
 exports.minifyCSS = ({ options }) => ({
