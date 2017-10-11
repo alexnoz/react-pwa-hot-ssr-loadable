@@ -1,5 +1,6 @@
 {
   "plugins": [
+    "react-hot-loader/babel",
     "syntax-object-rest-spread",
     "syntax-dynamic-import",
     ["transform-class-properties", { "loose": true }]

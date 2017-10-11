@@ -170,7 +170,7 @@ const productionConfig = merge([
 const developmentConfig = merge([
   {
     entry: {
-      app: paths.appIndex
+      app: ['react-hot-loader/patch', paths.appIndex]
     },
     devtool: 'cheap-module-eval-source-map',
     output: {
