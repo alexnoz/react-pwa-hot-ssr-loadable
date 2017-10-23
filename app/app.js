@@ -1,17 +1,10 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { renderRoutes } from 'react-router-config'
 
-import Bundle from 'components/bundle'
 import Header from 'components/header'
+import routes from './routes'
 
 import './assets/styles/index.scss'
-
-// Dynamically load components via `Bundle` helper component
-const loadComponent = (name, props) => (
-  <Bundle load={() => import(`components/${name}`)}>
-    {Comp => <Comp {...props} />}
-  </Bundle>
-)
 
 export default class App extends Component {
   state = { a: 0 }
@@ -25,26 +18,14 @@ export default class App extends Component {
   render () {
     const { a } = this.state
 
-    return (
-      <div>
-        <Header />
-        <main>
-          <Switch>
-            <Route exact path='/' render={props => (
-              loadComponent('home', props)
-            )} />
-            <Route path='/about' render={props => (
-              loadComponent('about', props)
-            )} />
-            <Route path='/topics' render={props => (
-              loadComponent('topics', props)
-            )} />
-          </Switch>
-          <button onClick={this.handleClick}>
-            {a ? `Clicked ${a} times` : 'Click me!'}
-          </button>
-        </main>
-      </div>
-    )
+    return [
+      <Header key={0} />,
+      <main key={1}>
+        {renderRoutes(routes)}
+        <button onClick={this.handleClick}>
+          {a ? `Clicked ${a} times` : 'Click me!'}
+        </button>
+      </main>
+    ]
   }
 }

@@ -1,11 +1,12 @@
-# React Hot SCSS Modules Boilerplate
+# React boilerplate - Progressive Web App, Code Splitting, Server-Side Rendering, Hot Reloading
 
-A webpack@3 / React@16 based boilerplate for building web apps.
+A webpack@3 / React@16 based boilerplate for building progressive web apps.
 
 ## Features:
-* Hot Module Replacement via [react-hot-loader](https://github.com/gaearon/react-hot-loader)
+* Hot Module Replacement in development via [react-hot-loader](https://github.com/gaearon/react-hot-loader)
+* Server-Side Rendering
 * Dynamic loading of views (code splitting)
-* Progressive Web Application ([service worker](https://developers.google.com/web/fundamentals/primers/service-workers/), `manifest.json` included)
+* Progressive Web App (passes all of the [lighthouse's](https://developers.google.com/web/tools/lighthouse/) audits)
 * CSS modules via [babel-plugin-react-css-modules](https://github.com/gajus/babel-plugin-react-css-modules)
 * [SCSS](http://sass-lang.com) preprocessor for CSS ([autoprefixer](https://github.com/postcss/autoprefixer) included)
 * [React router 4](https://reacttraining.com/react-router/web)
@@ -20,6 +21,6 @@ A webpack@3 / React@16 based boilerplate for building web apps.
 * Clone the repo via `git clone https://github.com/alexnoz/react-hot-scss-modules-boilerplate.git`
 * `cd react-hot-scss-modules-boilerplate`
 * Run `yarn install` to fetch all the dependencies
-* Run `yarn start` to start the [webpack-dev-server](https://github.com/webpack/webpack-dev-server) (`localhost:8080` will be opened automatically)
+* Run `yarn start` to start the [webpack-dev-server](https://github.com/webpack/webpack-dev-server) on `localhost:8080`
 * Start developing
-* When you are done, run `yarn run build` to get the production version of your app
+* When you are done, run `yarn run prod` to build a production version of the app and run a server on `localhost:8081`

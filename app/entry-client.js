@@ -17,8 +17,9 @@ const render = Component => {
 }
 
 if (process.env.NODE_ENV === 'production') {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
+  window.onload = e => {
+    if ('serviceWorker' in navigator)
+      navigator.serviceWorker.register('/sw.js')
   }
 }
 

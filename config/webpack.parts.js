@@ -41,8 +41,8 @@ exports.devServer = ({ host, port } = {}) => ({
   }
 })
 
-exports.extractBundles = (bundles) => ({
-  plugins: bundles.map((bundle) => (
+exports.extractBundles = bundles => ({
+  plugins: bundles.map(bundle => (
     new webpack.optimize.CommonsChunkPlugin(bundle)
   ))
 })
@@ -140,7 +140,7 @@ exports.loadImages = ({ include, exclude, options } = {}) => ({
   module: {
     rules: [
       {
-        test: /\.(png|jpg|svg)$/,
+        test: /\.(gif|png|jpe?g|svg)$/,
 
         include,
         exclude,

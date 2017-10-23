@@ -1,4 +1,4 @@
-const paths = require('./paths')
+const paths = require('./config/paths')
 
 module.exports = {
   env: {
@@ -15,7 +15,11 @@ module.exports = {
     },
 
     // see https://github.com/benmosher/eslint-plugin-import/issues/352
-    'import/resolver': 'webpack',
+    'import/resolver': {
+      webpack: {
+        config: './config/webpack.base.config.js'
+      }
+    },
   },
   plugins: [
     'import',
