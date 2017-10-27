@@ -44,10 +44,10 @@ if (isProd) {
 }
 
 app.use((err, req, res, next) => {
-  console.error('error : ', err.message)
+  console.error(chalk`{red error:} {underline.redBright ${err.message}}`)
   res.status(err.status || 500)
 })
 
 server.listen(port, () => {
-  console.log(chalk.blue('listening on port ') + chalk.magenta(port))
+  console.log(chalk`{blue the server is running at} {bold.cyan localhost:${port}}`)
 })
