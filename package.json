@@ -6,10 +6,11 @@
   "author": "Alex Nozdriukhin",
   "license": "MIT",
   "scripts": {
-    "prod": "yarn run build && cross-env NODE_ENV=production PORT=8081 node server",
+    "prod": "yarn run build && yarn run serve",
     "build": "yarn run build:client && yarn run build:server",
     "build:client": "cross-env NODE_ENV=production webpack --config ./config/webpack.client.config.js",
     "build:server": "cross-env NODE_ENV=production webpack --config ./config/webpack.server.config.js",
+    "serve": "cross-env NODE_ENV=production PORT=8081 node server",
     "start": "cross-env NODE_ENV=development node server"
   },
   "repository": {
