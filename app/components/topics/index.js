@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, Route } from 'react-router-dom'
-import { renderRoutes } from 'react-router-config'
+import { Link, Route, Switch } from 'react-router-dom'
+
+import { Rendering, Reconciliation, Portals } from '../../routes'
 
 const CustomLink = ({ label, to, exact }) => (
   <Route path={to} exact={exact} children={({ match }) => (
@@ -32,8 +33,12 @@ const Topics = ({ route, match: { url } }) => {
         <CustomLink to={`${url}/portals`} label='Portals' />
       </li>
     </ul>,
-    <Route key={3} exact path={url} render={() => <p>Please, select a topic</p>} />,
-    <div key={4}>{renderRoutes(route.routes)}</div>
+    <Switch key={4}>
+      <Route exact path={url} render={() => <p>Please, select a topic</p>} />,
+      <Route path={`${url}/rendering`} component={Rendering} />
+      <Route path={`${url}/reconciliation`} component={Reconciliation} />
+      <Route path={`${url}/portals`} component={Portals} />
+    </Switch>
   ]
 }
 

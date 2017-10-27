@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { renderRoutes } from 'react-router-config'
+import { Switch, Route } from 'react-router-dom'
 
 import Header from 'components/header'
-import routes from './routes'
+import { Home, About, Topics } from './routes'
 
 import './assets/styles/index.scss'
 
@@ -21,7 +21,11 @@ export default class App extends Component {
     return [
       <Header key={0} />,
       <main key={1}>
-        {renderRoutes(routes)}
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/about' component={About} />
+          <Route path='/topics' component={Topics} />
+        </Switch>
         <button onClick={this.handleClick}>
           {a ? `Clicked ${a} times` : 'Click me!'}
         </button>
