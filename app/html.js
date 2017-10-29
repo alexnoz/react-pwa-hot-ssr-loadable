@@ -4,16 +4,23 @@ const PropTypes = require('prop-types')
 const isProd = process.env.NODE_ENV === 'production'
 
 const Html = props => {
-  const { assets } = props
+  const { assets, splitPoints } = props
 
   let { content } = props
   let scripts
 
   if (isProd) {
     content = <div id='app' dangerouslySetInnerHTML={{ __html: content }} />
-    scripts = ['manifest.js', 'vendor.js', 'main.js'].map(name => (
-      <script key={name} src={assets[name]} />
-    ))
+    scripts = ['manifest.js', 'vendor.js']
+      .map(name => <script src={assets[name]} />)
+      .concat([
+        <script dangerouslySetInnerHTML={{ __html: (
+          'window.splitPoints = ' +
+          JSON.stringify(splitPoints)
+        ) }}
+        />,
+        <script src={assets['main.js']} />
+      ])
   } else {
     const { output } = require('../config/webpack.client.config')
     content = <div id='app' />
@@ -41,6 +48,7 @@ const Html = props => {
 
 Html.propTypes = {
   assets: PropTypes.object,
+  splitPoints: PropTypes.array,
   content: PropTypes.string
 }
 

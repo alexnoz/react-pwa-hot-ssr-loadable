@@ -1,33 +1,42 @@
-import 'regenerator-runtime/runtime'
-
 import React, { Component } from 'react'
 
-const loadComponent = getComponent => (
+import Loading from 'components/loading'
+
+// Accept two arguments so that API is the same as in `./sync` module
+const loadComponentAsync = (_, path) => (
   class AsyncComponent extends Component {
-    static Component = null;
+    static Component = null
 
     static loadComponent () {
-      return getComponent().then(m => m.default).then(Component => {
-        AsyncComponent.Component = Component
-        return Component
-      })
-    };
+      return import(`components/${path}`)
+        .then(m => m.default)
+        .then(Component => {
+          AsyncComponent.Component = Component
+          return Component
+        })
+        .catch(this.onError)
+    }
 
-    mounted = false;
+    mounted = false
 
     state = {
-      Component: AsyncComponent.Component
-    };
+      Component: AsyncComponent.Component,
+      error: null
+    }
+
+    onError = error => {
+      this.setState({ error })
+    }
 
     componentWillMount () {
-      if (this.state.Component === null) {
-        AsyncComponent.loadComponent()
+      if (this.state.Component === null)
+        AsyncComponent
+          .loadComponent()
           .then(Component => {
-            if (this.mounted) {
+            if (this.mounted)
               this.setState({ Component })
-            }
-          }).catch(console.error.bind(console))
-      }
+          })
+          .catch(this.onError)
     }
 
     componentDidMount () {
@@ -44,25 +53,9 @@ const loadComponent = getComponent => (
       if (Component !== null)
         return <Component {...this.props} />
 
-      return <p>Loading...</p> // or <div /> with a loading spinner, etc..
+      return <Loading error={this.state.error} />
     }
   }
 )
 
-const Home = loadComponent(() => import(/* webpackChunkName: 'home' */ 'components/home'))
-const About = loadComponent(() => import(/* webpackChunkName: 'about' */ 'components/about'))
-const Topics = loadComponent(() => import(/* webpackChunkName: 'topics' */ 'components/topics'))
-
-// `Topics` nested components
-const Rendering = loadComponent(() => import(/* webpackChunkName: 'topics.rendering' */ 'components/topics/rendering'))
-const Portals = loadComponent(() => import(/* webpackChunkName: 'topics.portals' */ 'components/topics/portals'))
-const Reconciliation = loadComponent(() => import(/* webpackChunkName: 'topics.reconciliation' */ 'components/topics/reconciliation'))
-
-export {
-  Home,
-  About,
-  Topics,
-  Rendering,
-  Portals,
-  Reconciliation
-}
+export default loadComponentAsync

@@ -10,14 +10,18 @@ const Html = require('./html')
 
 const renderProdApp = (req, res) => {
   console.log(req.url)
-  const context = {}
+
+  const splitPoints = []
   const content = renderToString(
-    <StaticRouter location={req.url} context={context}>
+    <StaticRouter location={req.url} context={{ splitPoints }}>
       <App />
     </StaticRouter>
   )
+
+  console.log(splitPoints)
+
   const html = renderToString(
-    <Html content={content} assets={assets} />
+    <Html content={content} assets={assets} splitPoints={splitPoints} />
   )
   res.send('<!doctype html>' + html)
 }
