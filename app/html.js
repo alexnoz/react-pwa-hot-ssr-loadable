@@ -22,9 +22,8 @@ const Html = props => {
         <script src={assets['main.js']} />
       ])
   } else {
-    const { output } = require('../config/webpack.client.config')
     content = <div id='app' />
-    scripts = <script src={`${output.publicPath}${output.filename}`} />
+    scripts = <script src='/static/app.js' />
   }
 
   return (
