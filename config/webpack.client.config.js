@@ -70,13 +70,11 @@ const productionConfig = merge(
 
 const developmentConfig = merge(
   {
-    entry: {
-      app: [
-        'react-hot-loader/patch',
-        'webpack-hot-middleware/client?noInfo=false&reload=true&overlay=true',
-        paths.entryClient
-      ]
-    },
+    entry: [
+      'react-hot-loader/patch',
+      'webpack-hot-middleware/client?noInfo=false&reload=true&overlay=true',
+      paths.entryClient
+    ],
     devtool: 'cheap-module-eval-source-map',
     output: {
       filename: 'app.js',

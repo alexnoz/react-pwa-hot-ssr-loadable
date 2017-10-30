@@ -11,7 +11,6 @@ module.exports = {
   entryClient: resolveApp('app/entry-client'),
   entryServer: resolveApp('app/entry-server'),
   public: resolveApp('public'),
-  appHtml: resolveApp('public/index.html'),
   manifest: resolveApp('public/manifest.json'),
   favicon: resolveApp('public/favicon.ico'),
   build: resolveApp('build'),

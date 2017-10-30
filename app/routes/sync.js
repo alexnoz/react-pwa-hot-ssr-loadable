@@ -5,7 +5,7 @@ const loadComponentSync = (chunkName, path) => {
   const mod = require(`components/${path}`)
   const Component = mod.default ? mod.default : mod // es6 module compat
 
-  function SyncComponent (props) {
+  const SyncComponent = props => {
     const { staticContext: ctx } = props
 
     if (ctx && ctx.splitPoints)

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
  * @param {Object} [options]
  *
  * @param {number} [options.delay=200]
- * Time to wait (in ms ) before `LoadingComponent` is rendered.
+ * Time to wait (in ms) before `LoadingComponent` is rendered.
  *
  * @param {number} [options.timeout=5000]
  * Time to wait (in ms) before `TimeoutComponent` is rendered.

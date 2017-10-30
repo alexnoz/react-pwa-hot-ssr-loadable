@@ -6,7 +6,7 @@ const compression = require('compression')
 const chalk = require('chalk')
 const favicon = require('serve-favicon')
 
-const devWebpackConfig = require('./config/webpack.client.config.js')
+const devWebpackConfig = require('./config/webpack.client.config')
 const paths = require('./config/paths')
 
 const isProd = process.env.NODE_ENV === 'production'
