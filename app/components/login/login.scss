@@ -1,0 +1,36 @@
+.wrapper {
+  margin: 2em 0;
+  border-radius: 5px;
+  padding: 1em;
+  width: 15em;
+  background-image: linear-gradient(#bebeff, #d69ff9);
+  box-shadow: 0 .2em 1em #222;
+}
+
+.heading {
+  font-size: 1.2rem;
+  text-align: center;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.input, .submit {
+  display: inline-block;
+}
+
+.form {
+  text-align: center;
+}
+
+.label {
+  text-align: left;
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.input {
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+
