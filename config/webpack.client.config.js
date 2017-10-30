@@ -16,11 +16,6 @@ const isProd = process.env.NODE_ENV === 'production'
 const productionConfig = merge(
   {
     entry: ['babel-polyfill', paths.entryClient],
-    performance: {
-      hints: 'warning', // 'error' or false are valid too
-      maxEntrypointSize: 100000, // in bytes
-      maxAssetSize: 450000 // in bytes
-    },
     plugins: [
       new CleanPlugin([paths.build], {
         root: paths.root
