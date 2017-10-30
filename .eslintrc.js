@@ -56,6 +56,7 @@ module.exports = {
     'import/namespace': 2,
     'import/default': 2,
     'import/export': 2,
+    'max-len': 1,
     'curly': 0,
     'no-console': 1,
     'object-curly-spacing': [2, 'always'],
