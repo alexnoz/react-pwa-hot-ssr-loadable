@@ -14,19 +14,19 @@ import PropTypes from 'prop-types'
  * @param {number} [options.timeout=5000]
  * Time to wait (in ms) before `TimeoutComponent` is rendered.
  *
- * @param {ReactComponent} [options.LoadingComponent=() => null]
+ * @param {JSX.Element} [options.LoadingComponent=() => null]
  * A component that renders when a module is loading longer than
  * it is specified in the `delay` param.
  *
- * @param {ReactComponent} [options.TimeoutComponent=() => null]
+ * @param {JSX.Element} [options.TimeoutComponent=() => null]
  * A component that renders when a module is loading longer than
  * it is specified in the `timeout` param.
  *
- * @param {ReactComponent} [options.ErrorComponent=() => null]
+ * @param {JSX.Element} [options.ErrorComponent=() => null]
  * A component that renders if an error is thrown during module's loading.
  * This component accepts an `error` object as a prop.
  *
- * @returns {ReactComponent} A `Loading` component.
+ * @returns {JSX.Element} A `Loading` component.
  */
 
 const getLoadingComponent = ({
