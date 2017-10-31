@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const loadComponentSync = (chunkName, path) => {
+const loadComponentSync = path => {
   const mod = require(`components/${path}`)
   const Component = mod.default ? mod.default : mod // es6 module compat
 
@@ -9,7 +9,7 @@ const loadComponentSync = (chunkName, path) => {
     const { staticContext: ctx } = props
 
     if (ctx && ctx.splitPoints)
-      ctx.splitPoints.push(chunkName)
+      ctx.splitPoints.push(path)
 
     return <Component {...props} />
   }

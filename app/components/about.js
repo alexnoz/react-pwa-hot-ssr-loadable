@@ -3,7 +3,7 @@ import React from 'react'
 // use this function to do component-level code splitting
 import loadComponent from '../routes'
 
-const Login = loadComponent('Login', 'login')
+const Login = loadComponent('login')
 
 class About extends React.Component {
   state = { showLogin: false }

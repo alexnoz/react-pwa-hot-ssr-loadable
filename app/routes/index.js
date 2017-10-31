@@ -9,11 +9,11 @@ export default loadComponent
 
 // use this pattern to load routes dynamically
 // (route-level code splitting)
-export const Home = loadComponent('Home', 'home')
+export const Home = loadComponent('home')
 
-export const About = loadComponent('About', 'about')
+export const About = loadComponent('about')
 
-export const Topics = loadComponent('Topics', 'topics')
-export const Reconciliation = loadComponent('Reconciliation', 'topics/reconciliation')
-export const Rendering = loadComponent('Rendering', 'topics/rendering')
-export const Portals = loadComponent('Portals', 'topics/portals')
+export const Topics = loadComponent('topics')
+export const Reconciliation = loadComponent('topics/reconciliation')
+export const Rendering = loadComponent('topics/rendering')
+export const Portals = loadComponent('topics/portals')

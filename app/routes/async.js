@@ -2,58 +2,30 @@ import React, { Component } from 'react'
 
 import Loading from 'components/loading'
 
-// Accept two arguments so that API is the same as in `./sync` module
-const loadComponentAsync = (_, path) => (
+// `path` should be relative to the `components/` folder
+const loadComponentAsync = path => (
   class AsyncComponent extends Component {
-    static Component = null
-
-    static loadComponent () {
-      return import(`components/${path}`)
-        .then(m => m.default)
-        .then(Component => {
-          AsyncComponent.Component = Component
-          return Component
-        })
-        .catch(this.onError)
-    }
-
-    mounted = false
-
     state = {
-      Component: AsyncComponent.Component,
+      Component: null,
       error: null
     }
 
-    onError = error => {
-      this.setState({ error })
-    }
-
-    componentWillMount () {
-      if (this.state.Component === null)
-        AsyncComponent
-          .loadComponent()
-          .then(Component => {
-            if (this.mounted)
-              this.setState({ Component })
-          })
-          .catch(this.onError)
-    }
-
     componentDidMount () {
-      this.mounted = true
-    }
-
-    componentWillUnmount () {
-      this.mounted = false
+      // Name a chunk via webpack's magic comment
+      import(/* webpackChunkName: '[request]' */ `components/${path}`)
+        .then(mod => mod.default ? mod.default : mod)
+        .then(Component => {
+          this.setState({ Component })
+        })
+        .catch(error => this.setState({ error }))
     }
 
     render () {
       const { Component } = this.state
 
-      if (Component !== null)
-        return <Component {...this.props} />
-
-      return <Loading error={this.state.error} />
+      return Component
+        ? <Component {...this.props} />
+        : <Loading error={this.state.error} />
     }
   }
 )

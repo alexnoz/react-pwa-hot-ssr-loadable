@@ -4,23 +4,29 @@ const PropTypes = require('prop-types')
 const isProd = process.env.NODE_ENV === 'production'
 
 const Html = props => {
-  const { assets, splitPoints } = props
+  const { assets, chunkNames } = props
 
   let { content } = props
   let scripts
+  let preloadLinks
 
   if (isProd) {
     content = <div id='app' dangerouslySetInnerHTML={{ __html: content }} />
-    scripts = ['manifest.js', 'vendor.js']
-      .map(name => <script src={assets[name]} />)
-      .concat([
-        <script dangerouslySetInnerHTML={{ __html: (
-          'window.splitPoints = ' +
-          JSON.stringify(splitPoints)
-        ) }}
-        />,
-        <script src={assets['main.js']} />
-      ])
+
+    const urls = [
+      'manifest.js',
+      'vendor.js',
+      ...chunkNames,
+      'main.js'
+    ].map(name => assets[name])
+
+    scripts = []
+    preloadLinks = []
+
+    urls.forEach(url => {
+      scripts.push(<script src={url} />)
+      preloadLinks.push(<link rel='preload' as='script' href={url} />)
+    })
   } else {
     content = <div id='app' />
     scripts = <script src='/static/app.js' />
@@ -33,6 +39,7 @@ const Html = props => {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta name='theme-color' content='#000000' />
         <title>SSR Demo</title>
+        {isProd && preloadLinks}
         <link rel='manifest' href='/manifest.json' />
         <link rel='shortcut icon' href='/favicon.ico' />
         {isProd && <link href={assets['main.css']} type='text/css' rel='stylesheet' />}
@@ -47,7 +54,7 @@ const Html = props => {
 
 Html.propTypes = {
   assets: PropTypes.object,
-  splitPoints: PropTypes.array,
+  chunkNames: PropTypes.array,
   content: PropTypes.string
 }
 

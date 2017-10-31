@@ -16,10 +16,12 @@ const renderProdApp = assets => (req, res) => {
     </StaticRouter>
   )
 
-  console.log(splitPoints)
+  const chunkNames = splitPoints.map(name => name.replace(/\//g, '-') + '.js')
+
+  console.log(chunkNames)
 
   const html = renderToString(
-    <Html content={content} assets={assets} splitPoints={splitPoints} />
+    <Html content={content} assets={assets} chunkNames={chunkNames} />
   )
   res.send('<!doctype html>' + html)
 }
