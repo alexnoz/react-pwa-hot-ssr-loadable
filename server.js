@@ -26,7 +26,9 @@ app.use(favicon(paths.favicon))
 app.use('/sw.js', serve('./build/sw.js'))
 
 if (isProd) {
-  app.get('*', require('./build/server-bundle').default)
+  const assets = require('./build/assets.json')
+
+  app.get('*', require('./build/server-bundle').default(assets))
 } else {
   const compiler = require('webpack')(devWebpackConfig)
 

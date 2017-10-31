@@ -2,13 +2,11 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router'
 
-import assets from '../build/assets.json'
-
 import App from './app'
 
 const Html = require('./html')
 
-const renderProdApp = (req, res) => {
+const renderProdApp = assets => (req, res) => {
   console.log(req.url)
 
   const splitPoints = []
