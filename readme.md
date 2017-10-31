@@ -18,8 +18,8 @@ A webpack@3 / React@16 based boilerplate for building progressive web apps.
   * [react](https://www.npmjs.com/package/eslint-plugin-react)
 
 ## Usage:
-* Clone the repo via `git clone https://github.com/alexnoz/react-hot-ssr-scss-modules-boilerplate.git`
-* `cd react-hot-ssr-scss-modules-boilerplate`
+* Clone the repo via `git clone https://github.com/alexnoz/react-pwa-hot-ssr-loadable.git`
+* `cd react-pwa-hot-ssr-loadable`
 * Run `yarn install` to fetch all the dependencies
 * Run `yarn start` to start the [webpack-dev-server](https://github.com/webpack/webpack-dev-server) on `localhost:8080`
 * Start developing

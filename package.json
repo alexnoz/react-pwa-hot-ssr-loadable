@@ -1,5 +1,5 @@
 {
-  "name": "react-hot-ssr-scss-modules-boilerplate",
+  "name": "react-pwa-hot-ssr-loadable",
   "version": "0.0.1",
   "description": "A webpack@3/react@16 boilerplate for building web apps",
   "main": "./server.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexnoz/react-hot-ssr-scss-modules-boilerplate.git"
+    "url": "https://github.com/alexnoz/react-pwa-hot-ssr-loadable.git"
   },
   "keywords": [
     "boilerplate",
