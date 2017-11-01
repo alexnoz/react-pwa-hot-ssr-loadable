@@ -7,8 +7,6 @@ import App from './app'
 const Html = require('./html')
 
 const renderProdApp = assets => (req, res) => {
-  console.log(req.url)
-
   const splitPoints = []
   const content = renderToString(
     <StaticRouter location={req.url} context={{ splitPoints }}>
@@ -17,8 +15,6 @@ const renderProdApp = assets => (req, res) => {
   )
 
   const chunkNames = splitPoints.map(name => name.replace(/\//g, '-') + '.js')
-
-  console.log(chunkNames)
 
   const html = renderToString(
     <Html content={content} assets={assets} chunkNames={chunkNames} />
