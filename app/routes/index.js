@@ -3,11 +3,11 @@
 // (change `./sync` to `./async` via webpack.NormalModuleReplacementPlugin).
 import loadComponent from './sync'
 
-// use this function to load components dynamically
+// use the default export to load components dynamically
 // (component-level code splitting)
 export default loadComponent
 
-// use this pattern to load routes dynamically
+// use named exports to load routes dynamically
 // (route-level code splitting)
 export const Home = loadComponent('home')
 

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 /**
  * This function returns the `Loading`
- * component that you can use while
- * your module is being loaded.
+ * component that can be used while
+ * a module is being loaded.
  *
  * @param {Object} [options]
  *
