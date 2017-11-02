@@ -5,7 +5,8 @@ A webpack@3 / React@16 based boilerplate for building progressive web apps.
 ## Features:
 * Hot Module Replacement in development via [react-hot-loader](https://github.com/gaearon/react-hot-loader)
 * Server-Side Rendering
-* Dynamic loading of views (code splitting)
+* Route-level code splitting
+* Component-level code splitting
 * Progressive Web App (passes all of the [lighthouse's](https://developers.google.com/web/tools/lighthouse/) audits)
 * CSS modules via [babel-plugin-react-css-modules](https://github.com/gajus/babel-plugin-react-css-modules)
 * [SCSS](http://sass-lang.com) preprocessor for CSS ([autoprefixer](https://github.com/postcss/autoprefixer) included)
