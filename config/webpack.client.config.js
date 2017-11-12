@@ -63,25 +63,23 @@ const productionConfig = merge(
   ])
 )
 
-const developmentConfig = merge(
-  {
-    entry: [
-      'react-hot-loader/patch',
-      'webpack-hot-middleware/client?noInfo=false&reload=true&overlay=true',
-      paths.entryClient
-    ],
-    devtool: 'cheap-module-eval-source-map',
-    output: {
-      filename: 'app.js',
-      devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]'
-    },
-    plugins: [
-      new webpack.NamedModulesPlugin(),
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoEmitOnErrorsPlugin()
-    ]
-  }
-)
+const developmentConfig = {
+  entry: [
+    'react-hot-loader/patch',
+    'webpack-hot-middleware/client?noInfo=false&reload=true&overlay=true',
+    paths.entryClient
+  ],
+  devtool: 'cheap-module-eval-source-map',
+  output: {
+    filename: 'app.js',
+    devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]'
+  },
+  plugins: [
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ]
+}
 
 module.exports = isProd
   ? merge(baseConfig, productionConfig)
