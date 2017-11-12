@@ -23,7 +23,7 @@ app.use(compression({ threshold: 0 }))
 app.use(publicPath.slice(0, -1), serve(paths.build, true))
 app.use('/manifest.json', serve(paths.manifest, true))
 app.use(favicon(paths.favicon))
-app.use('/sw.js', serve('./build/sw.js'))
+app.use('/sw.js', serve(paths.buildSW))
 
 if (isProd) {
   const assets = require('./build/assets.json')
