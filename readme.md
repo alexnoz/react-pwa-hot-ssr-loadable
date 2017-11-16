@@ -25,3 +25,10 @@ A webpack@3 / React@16 based boilerplate for building progressive web apps.
 * Run `yarn start` to start the [webpack-dev-server](https://github.com/webpack/webpack-dev-server) on `localhost:8080`
 * Start developing
 * When you are done, run `yarn run prod` to build a production version of the app and run a server on `localhost:8081`
+
+## TODO:
+- [x] Code splitting
+- [x] Server-side rendering
+- [ ] CSS splitting
+- [ ] Emit a non-transpiled bundle for modern browsers
+- [ ] Redux integration (separate branch)
