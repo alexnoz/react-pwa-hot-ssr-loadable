@@ -27,6 +27,7 @@ export default class App extends Component {
             <Route path='/about' component={About} />
             <Route path='/topics' component={Topics} />
           </Switch>
+          <br />
           <button onClick={this.handleClick}>
             {a ? `Clicked ${a} times` : 'Click me!'}
           </button>

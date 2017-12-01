@@ -5,7 +5,13 @@ const Rendering = () => (
     <h3>Rendering</h3>
     <p>
       Read about rendering &nbsp;
-      <a rel='noopener noreferer' target='_blank' href='https://reactjs.org/docs/rendering-elements.html'>here</a>
+      <a
+        rel='noopener noreferer'
+        target='_blank'
+        href='https://reactjs.org/docs/rendering-elements.html'
+      >
+        here
+      </a>
     </p>
   </Fragment>
 )

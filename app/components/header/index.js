@@ -5,7 +5,11 @@ import { NavLink } from 'react-router-dom'
 import s from './header.scss'
 
 const StyledNavLink = ({ label, ...props }) => (
-  <NavLink {...props} styleName='nav-link' activeClassName={s['nav-link-active']}>
+  <NavLink
+    {...props}
+    styleName='nav-link'
+    activeClassName={s['nav-link-active']}
+  >
     {label}
   </NavLink>
 )

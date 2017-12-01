@@ -9,7 +9,8 @@ import getLoadingComponent from '../helpers/get-loading-component'
 const Loading = getLoadingComponent({
   LoadingComponent: () => <div>Loading...</div>,
   TimeoutComponent: () => <div>Taking a loooong time...</div>,
-  ErrorComponent: () => <div style={{ color: 'red' }}>Something went wrong ¯\_(ツ)_/¯</div>
+  ErrorComponent: () =>
+    <div style={{ color: 'red' }}>Something went wrong ¯\_(ツ)_/¯</div>
 })
 
 export default Loading
