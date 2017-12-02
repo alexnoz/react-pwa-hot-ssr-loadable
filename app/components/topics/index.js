@@ -18,31 +18,29 @@ CustomLink.propTypes = {
   exact: PropTypes.bool
 }
 
-const Topics = ({ match: { url } }) => {
-  return (
-    <Fragment>
-      <h2>Topics</h2>
-      <p>Here is a nested routes example</p>
-      <ul style={{ listStyle: 'none' }}>
-        <li>
-          <CustomLink to={`${url}/rendering`} label='Rendering' />
-        </li>
-        <li>
-          <CustomLink to={`${url}/reconciliation`} label='Reconciliation' />
-        </li>
-        <li>
-          <CustomLink to={`${url}/portals`} label='Portals' />
-        </li>
-      </ul>
-      <Switch>
-        <Route exact path={url} render={() => <p>Please, select a topic</p>} />
-        <Route path={`${url}/rendering`} component={Rendering} />
-        <Route path={`${url}/reconciliation`} component={Reconciliation} />
-        <Route path={`${url}/portals`} component={Portals} />
-      </Switch>
-    </Fragment>
-  )
-}
+const Topics = ({ match: { url } }) => (
+  <Fragment>
+    <h2>Topics</h2>
+    <p>Here is a nested routes example</p>
+    <ul style={{ listStyle: 'none' }}>
+      <li>
+        <CustomLink to={`${url}/rendering`} label='Rendering' />
+      </li>
+      <li>
+        <CustomLink to={`${url}/reconciliation`} label='Reconciliation' />
+      </li>
+      <li>
+        <CustomLink to={`${url}/portals`} label='Portals' />
+      </li>
+    </ul>
+    <Switch>
+      <Route exact path={url} render={() => <p>Please, select a topic</p>} />
+      <Route path={`${url}/rendering`} component={Rendering} />
+      <Route path={`${url}/reconciliation`} component={Reconciliation} />
+      <Route path={`${url}/portals`} component={Portals} />
+    </Switch>
+  </Fragment>
+)
 
 Topics.propTypes = {
   match: PropTypes.object
